@@ -1,8 +1,9 @@
-# spotify-group-recommendation
+# Spotify Group Recommendation
 
-## Todo till 19.11
+Place some good explanation text here...
 
-- [ ] Prepare Presentation
-  - [ ] Flow Diagram of UI
-  - [ ] Backend description
-  - [ ] Formalize expectations, risks etc. in detail
+## User Interface
+
+The User Interface was built with React. Check the Readme under spotify-group-recommendation.UI for more.
+
+## Backend
