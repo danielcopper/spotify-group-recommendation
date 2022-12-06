@@ -1,8 +1,15 @@
-# spotify-group-recommendation
+# Spotify Group Recommendation
 
-## Todo till 19.11
+Place some good explanation text here...
 
-- [ ] Prepare Presentation
-  - [ ] Flow Diagram of UI
-  - [ ] Backend description
-  - [ ] Formalize expectations, risks etc. in detail
+## Development
+
+### VS Code
+
+The workspace file includes recommendations for vs code extensions.
+
+## User Interface
+
+The User Interface was built with React. Check the Readme under spotify-group-recommendation.ui for more.
+
+## Backend
