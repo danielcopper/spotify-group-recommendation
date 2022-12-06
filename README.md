@@ -10,6 +10,6 @@ The workspace file includes recommendations for vs code extensions.
 
 ## User Interface
 
-The User Interface was built with React. Check the Readme under spotify-group-recommendation.UI for more.
+The User Interface was built with React. Check the Readme under spotify-group-recommendation.ui for more.
 
 ## Backend
