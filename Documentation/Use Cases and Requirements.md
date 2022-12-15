@@ -33,6 +33,10 @@ The following describes the different use cases and interactions between the Fro
 
 ### User Interactions
 
+From our perspective, a UML use case diagram is most appropriate to demonstrate the different ways that a user may interact with the system. The use case diagram should not provide too many details. Instead, it depicts a high-level overview between the actor (site user) and the group recommendation system. In this way, it supplements the written requirements.
+
+![UI-Usecase-Diagram](../Resources/Website-Interaction-Diagram.png)
+
 #### Accounts
 
 It should be possible to create accounts in the Spotify group recommendation system. Every user needs to be able to form groups and invite/add other users to the groups.
