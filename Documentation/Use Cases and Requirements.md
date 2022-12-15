@@ -12,12 +12,12 @@ The following describes the different use cases and interactions between the Fro
       - [Groups](#groups)
       - [Playlists](#playlists)
       - [Use Cases](#use-cases)
-    - [Communication to the backend](#communication-to-the-backend)
-      - [Request/Response Flow](#requestresponse-flow)
-        - [User Specific Spotify Data](#user-specific-spotify-data)
-        - [User Data](#user-data)
-        - [ML Requests](#ml-requests)
-          - [Example Flow](#example-flow)
+  - [Frontend/Backend Communication](#frontendbackend-communication)
+    - [Request/Response Flows](#requestresponse-flows)
+      - [User Specific Spotify Data](#user-specific-spotify-data)
+      - [User Data](#user-data)
+      - [ML Requests](#ml-requests)
+      - [Example Flow](#example-flow)
 
 ## Frontend
 
@@ -119,14 +119,14 @@ In addition to the playlist being linked to the user, it will also be saved in t
 | Extensions (Error scenarios) | 1. Rating is made before playlist has been listened to <br> 4. Other users who didn’t have the music playing on their phone but participated in the group can’t vote |
 | Variations (alternate scenarios) | No voting happened, no voting gets saved. |
 
-### Communication to the backend
+## Frontend/Backend Communication
 
 All logic will be handled by the backend API of the group recommendation app.
 The backend receives requests from the frontend, parses them and sends them to the ML interface.
 
-#### Request/Response Flow
+### Request/Response Flows
 
-##### User Specific Spotify Data
+#### User Specific Spotify Data
 
 This Flow includes user specific data and thus will probably be handled by a multiple endpoints.
 Possible requests could be
@@ -137,7 +137,7 @@ Possible requests could be
 - Delete playlist from user
 - Get metadata of users songs/playlists
 
-##### User Data
+#### User Data
 
 This flow handles user data that is not related to spotify. This means the users that have registered on the app, created playlists and so on.
 
@@ -154,12 +154,12 @@ This flow handles user data that is not related to spotify. This means the users
 | Extensions (Error scenarios) | 1. Malformed request <br> 2. Data unavailable |
 | Variations (alternate scenarios) |
 
-##### ML Requests
+#### ML Requests
 
 These flows contain data to produce/handle the newly generated playlists.
 The normal flow is that the user has requested a new playlist and the backend is then responsible for sending the multiple requests and responses.
 
-###### Example Flow
+#### Example Flow
 
 Request Playlist (includes group members and possibly genre)
 -> Backend request user (multiple users) metadata from Spotify
