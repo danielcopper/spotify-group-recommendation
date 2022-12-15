@@ -6,6 +6,7 @@ A Machine Learning implementation that handles the playlist generation.
 The following describes the different use cases and interactions between the Frontend and the Backend.
 
 - [Spotify Group Recommendations](#spotify-group-recommendations)
+  - [General Use Case / Workflow](#general-use-case--workflow)
   - [Frontend](#frontend)
     - [User Interactions](#user-interactions)
       - [Accounts](#accounts)
@@ -18,6 +19,15 @@ The following describes the different use cases and interactions between the Fro
       - [User Data](#user-data)
       - [ML Requests](#ml-requests)
       - [Example Flow](#example-flow)
+  - [Machine Learning Requirements](#machine-learning-requirements)
+    - [ML Input](#ml-input)
+    - [ML Output](#ml-output)
+  - [Security Requirements](#security-requirements)
+    - [User Accounts](#user-accounts)
+      - [Backend API endpoints](#backend-api-endpoints)
+    - [Spotify User Account Integration](#spotify-user-account-integration)
+
+## General Use Case / Workflow
 
 ## Frontend
 
@@ -182,3 +192,59 @@ Request Playlist (includes group members and possibly genre)
 | Main success scenario | 1. Request is received <br> 2. Content is parsed <br> 3. Content is sent to ML interface <br> 4. Response is received from ML interface <br> 5. Playlist is returned to Frontend and sent to Spotify |
 | Extensions (Error scenarios) | 1. Malformed request <br> 2. Data unavailable |
 | Variations (alternate scenarios) |
+
+## Machine Learning Requirements
+
+### ML Input
+
+### ML Output
+
+## Security Requirements
+
+Security is a big topic of concern for a lot of users. In order to keep risks and maintenance resources at a minimum we try to outsource as much as possible when it comes to the topic of sensitive data.
+
+For this reason we will separate user data into two groups. The first group is our own user management. The second group of concern is access to the users Spotify account/api.
+
+### User Accounts
+
+Our own user management system should be as simple as possible and contain as little sensitive data as possible.
+For this reason we will have our own user database. The database will only save information directly associated to our platform, such as login data, groups of the users and possibly playlists. It would even be possible to not save the playlists itself since it will be possible for the users to integrate previously created playlists into the Spotify account.
+
+Nonetheless as soon as we would release a version of our app to the public we should use a token based flow for interacting with the backend and consider following secure and proven strategies like [OpenId Connect](https://openid.net/connect/).
+
+#### Backend API endpoints
+
+We will use our API to access user data of our own registered users. The following is a minimal list of endpoints that we have to provide to access user data.
+
+- **GET** */api/[version]/users*
+  - returns all users we have currently in our database
+- **GET** */api/[version]/users/{id}*
+  - returns a specific user
+- **GET** */api/[version]/groups*
+  - returns all user groups currently in our database
+- **GET** */api/[version]/groups/{id}*
+  - returns a specific user group
+- **POST** */api/[version]/users*
+  - create a new user
+- **POST** */api/[version]/groups*
+  - create a new usergroup (requires a REQUEST body)
+- **PUT/PATCH** */api/[version]/users/{id}*
+  - update user specific data
+- **PUT/PATCH** *api/[version]/groups/{id}*
+  - update group specific data
+- **DELETE** *api/[version]/users/{id}*
+  - delete a user from our database
+- **DELETE** *api/[version]/groups/{id}*
+  - delete group data from our database
+
+If we decide during development that we need to include playlist related data into our database, these endpoints must be updated accordingly.
+
+### Spotify User Account Integration
+
+The spotify API offers different [scopes](https://developer.spotify.com/documentation/general/guides/authorization/scopes/) to access data. Each scope represents/includes a group of data that can be obtained. For example accessing playlist related user data.
+In order to minimize risks and security concerns we should focus on short lived access tokens and permissions.
+For this is would be a good idea to rely on the [implicit grant flow](https://developer.spotify.com/documentation/general/guides/authorization/implicit-grant/) that Spotify provides.
+
+The advantage and why we should use this flow is that it allows to specify the scope we would need in order to access user data and that the flow is short-lived.
+
+![Implicit Grant Flow](./../Resources/Implicit-Grant-Flow.png)

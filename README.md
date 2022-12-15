@@ -9,6 +9,8 @@ Place some good explanation text here...
 
 ## Development
 
+Spotify provides [guidance](https://developer.spotify.com/documentation/general/guides/) in term of creating apps that integrate with spotify. E.g. it describes how to get access tokens to interact with the spotify API, which is exactly what we need,
+
 ### VS Code
 
 The workspace file includes recommendations for vs code extensions.
