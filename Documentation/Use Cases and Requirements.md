@@ -201,7 +201,11 @@ Request Playlist (includes group members and possibly genre)
 
 ### ML Input
 
+This chapter describes the data we will be able to provide to the ML backend.
+
 ### ML Output
+
+This chapter describes the data we want to receive from the ML backend.
 
 ## Security Requirements
 
