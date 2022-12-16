@@ -6,15 +6,13 @@
   ],
   "settings": {
     "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.formatOnSave": true
   },
   "extensions": {
     "recommendations": [
       "visualstudioexptteam.vscodeintellicode",
       "formulahendry.auto-close-tag",
       "esbenp.prettier-vscode",
-      "dbaeumer.vscode-eslint",
       "christian-kohler.path-intellisense"
     ]
   }
