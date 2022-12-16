@@ -20,8 +20,6 @@ The following describes the different use cases and interactions between the Fro
       - [ML Requests](#ml-requests)
       - [Example Flow](#example-flow)
   - [Machine Learning Requirements](#machine-learning-requirements)
-    - [ML Input](#ml-input)
-    - [ML Output](#ml-output)
   - [Security Requirements](#security-requirements)
     - [User Accounts](#user-accounts)
       - [Backend API endpoints](#backend-api-endpoints)
@@ -199,13 +197,7 @@ Request Playlist (includes group members and possibly genre)
 
 ## Machine Learning Requirements
 
-### ML Input
-
-This chapter describes the data we will be able to provide to the ML backend.
-
-### ML Output
-
-This chapter describes the data we want to receive from the ML backend.
+Check out ML-Requirements under the 'Documents' folder for info about ML-Requirements.
 
 ## Security Requirements
 
