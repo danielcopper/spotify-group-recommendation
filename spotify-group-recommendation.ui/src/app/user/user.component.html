@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-2">
+    <div class="list-group-item" (click)="onClickPlaylists()" style="cursor: pointer;">
+      <h4 class="list-group-item-heading">Playlists</h4>
+      <p class="list-group-item-text">Manage your playlists</p>
+    </div>
+    <div class="list-group-item" (click)="onClickGroups()" style="cursor: pointer;">
+      <h4 class="list-group-item-heading">Groups</h4>
+      <p class="list-group-item-text">Manage your groups</p>
+    </div>
+    <div class="list-group-item" (click)="onClickDetails()" style="cursor: pointer;">
+      <h4 class="list-group-item-heading">Details</h4>
+      <p class="list-group-item-text">Manage user details</p>
+    </div>
+  </div>
+  <div class="col-md-10">
+    <router-outlet></router-outlet>
+  </div>
+</div>
